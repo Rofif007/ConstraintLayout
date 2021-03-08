@@ -15,6 +15,16 @@ public class MainActivity extends AppCompatActivity {
     EditText edEmail, edPassword;
     String Email, Password;
 
+    public boolean validasiData(){
+        String emailActive = "rofif@gmail.com";
+        String passActive = "Bismillah";
+
+        if(emailActive.equals(edEmail.getText().toString()) && passActive.equals(edPassword.getText().toString())){
+            return true;
+        }
+        return false;
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,18 +41,15 @@ public class MainActivity extends AppCompatActivity {
                 Email = edEmail.getText().toString();
                 Password = edPassword.getText().toString();
 
-                Toast t = Toast.makeText(getApplicationContext(),
-                         " dan Email " + Email + " dan Password anda: " + Password + " ", Toast.LENGTH_LONG);
-                t.show();
-            }
-            public boolean validasiData(){
-                String emailActive = "rofif@gmail.com";
-                String passActive = "Wek";
-
-                if(emailActive.equals(edEmail.getText().toString()) && passActive.equals(edPassword.getText().toString())){
-                    return true;
+                if (validasiData() == true) {
+                    Toast t = Toast.makeText(getApplicationContext(),
+                            " dan Email " + Email + " dan Password anda: " + Password + " ", Toast.LENGTH_LONG);
+                    t.show();
+                } else{
+                    Toast t = Toast.makeText(getApplicationContext(),
+                            " Gagal !! ", Toast.LENGTH_LONG);
+                    t.show();
                 }
-                return false;
             }
         });
     }
