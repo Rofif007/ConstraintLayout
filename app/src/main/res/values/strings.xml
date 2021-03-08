@@ -3,4 +3,5 @@
     <string name="tEmail">Email</string>
     <string name="tPassword">Password</string>
     <string name="bOKE">OKE</string>
+    <string name="Login">LOGIN</string>
 </resources>
