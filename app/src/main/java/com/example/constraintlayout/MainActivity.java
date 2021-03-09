@@ -10,21 +10,12 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import java.util.jar.Attributes;
+
 public class MainActivity extends AppCompatActivity {
     Button btnoke;
     EditText edEmail, edPassword;
     String Email, Password;
-
-    public boolean validasiData(){
-        String emailActive = "rofif@gmail.com";
-        String passActive = "Bismillah";
-
-        if(emailActive.equals(edEmail.getText().toString()) && passActive.equals(edPassword.getText().toString())){
-            return true;
-        }
-        return false;
-    }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,15 +32,31 @@ public class MainActivity extends AppCompatActivity {
                 Email = edEmail.getText().toString();
                 Password = edPassword.getText().toString();
 
-                if (validasiData() == true) {
+                if (Email.equals("rofifanp@gmail.com") && Password.equals("Bismillah")) {
                     Toast t = Toast.makeText(getApplicationContext(),
-                            " dan Email " + Email + " dan Password anda: " + Password + " ", Toast.LENGTH_LONG);
+                            "Login Berhasil ", Toast.LENGTH_LONG);
                     t.show();
-                } else{
+
+                }
+
+                else if (!Email.equals("rofifanp@gmail.com") && Password.equals("Bismillah")){
                     Toast t = Toast.makeText(getApplicationContext(),
-                            " Gagal !! ", Toast.LENGTH_LONG);
+                            "Email Salah", Toast.LENGTH_LONG);
+                    t.show();
+
+                }
+
+                else if(Email.equals("rofifanp@gmail.com") && !Password.equals("Bismillah")){
+                    Toast t = Toast.makeText(getApplicationContext(),
+                            "Password Salah", Toast.LENGTH_LONG);
                     t.show();
                 }
+                else{
+                    Toast t = Toast.makeText(getApplicationContext(),
+                            "Email dan Password salah", Toast.LENGTH_LONG);
+                    t.show();
+                }
+
             }
         });
     }
