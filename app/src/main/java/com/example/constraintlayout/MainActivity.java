@@ -2,6 +2,7 @@ package com.example.constraintlayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -37,6 +38,14 @@ public class MainActivity extends AppCompatActivity {
                             "Login Berhasil ", Toast.LENGTH_LONG);
                     t.show();
 
+                    Bundle bd = new Bundle();
+                    bd.putString("parameter", Email.trim());
+                    bd.putString("parameter2", Password.trim());
+
+                    Intent IntBaru = new Intent(MainActivity.this, Activity2.class);
+                    IntBaru.putExtras(bd);
+
+                    startActivity(IntBaru);
                 }
 
                 else if (!Email.equals("rofifanp@gmail.com") && Password.equals("Bismillah")){
@@ -56,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
                             "Email dan Password salah", Toast.LENGTH_LONG);
                     t.show();
                 }
-
             }
         });
     }
